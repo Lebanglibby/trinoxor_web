@@ -29,7 +29,7 @@ export default function Process() {
       icon: Headset,
       number: '04',
       title: 'Ongoing Support',
-      description: 'We don\'t disappear after launch. Our team provides continuous support, updates, and improvements to help your business thrive.',
+      description: "We don't disappear after launch. Our team provides continuous support, updates, and improvements to help your business thrive.",
       color: '#8B5CF6',
     },
   ];
@@ -112,7 +112,7 @@ export default function Process() {
                   lineHeight: 1.7,
                 }}
               >
-                We believe in transparency and collaboration. Here's how we turn your ideas into reality.
+                We believe in transparency and collaboration. Here&apos;s how we turn your ideas into reality.
               </Typography>
             </Box>
           </Box>

@@ -231,7 +231,7 @@ export default function Contact() {
                 mx: 'auto',
               }}
             >
-              Ready to transform your business? Let's discuss your project and create something amazing together.
+              Ready to transform your business? Let&apos;s discuss your project and create something amazing together.
             </Typography>
           </Box>
         </Container>
@@ -282,7 +282,7 @@ export default function Contact() {
                       Get In Touch
                     </Typography>
                     <Typography variant="body1" sx={{ mb: 2, color: '#6B7280', fontSize: '1.1rem', lineHeight: 1.7 }}>
-                      Fill out the form below and we'll get back to you within 24 hours.
+                      Fill out the form below and we&apos;ll get back to you within 24 hours.
                     </Typography>
                   </Box>
                   
@@ -657,7 +657,7 @@ export default function Contact() {
           sx={{ width: '100%' }}
           icon={<CheckCircle size={20} />}
         >
-          Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+          Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
         </Alert>
       </Snackbar>
 

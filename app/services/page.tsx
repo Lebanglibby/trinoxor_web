@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 // Single source of truth for pricing
-export const PRICING = {
+const PRICING = {
   web: {
     starter:      { label: 'Starter',      price: 'P1,200',  period: '1–2 weeks' },
     professional: { label: 'Professional', price: 'P2,500',  period: '2–4 weeks' },
@@ -537,7 +537,7 @@ export default function Services() {
             Ready to Get Started?
           </Typography>
           <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.8)', mb: 5, fontWeight: 400, lineHeight: 1.7, fontSize: { xs: '0.95rem', md: '1.1rem' } }}>
-            Let's discuss how we can help transform your business with the right technology solution.
+            Let&apos;s discuss how we can help transform your business with the right technology solution.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
             <Link href="/contact" passHref>

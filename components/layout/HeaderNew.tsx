@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AppBar, Toolbar, Container, Box, Button, IconButton, Typography, Drawer, List, ListItem, Divider, Fade, useScrollTrigger } from '@mui/material';
@@ -104,14 +105,12 @@ export default function HeaderNew() {
                 },
               }}
             >
-              <img 
+              <Image 
                 src="https://www.cashplugloans.co.bw/trinoxor/trinoxor_logo.png" 
                 alt="Trinoxor Logo" 
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'contain' 
-                }} 
+                width={60}
+                height={60}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
               />
             </Box>
             <Typography
@@ -236,14 +235,12 @@ export default function HeaderNew() {
                     boxShadow: '0 4px 12px rgba(30, 58, 138, 0.15)',
                   }}
                 >
-                  <img 
+                  <Image 
                     src="https://www.cashplugloans.co.bw/trinoxor/trinoxor_logo.png" 
                     alt="Trinoxor Logo" 
-                    style={{ 
-                      width: '100%', 
-                      height: '100%', 
-                      objectFit: 'contain' 
-                    }} 
+                    width={45}
+                    height={45}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
                   />
                 </Box>
                 <Typography

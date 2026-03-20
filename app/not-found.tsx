@@ -58,7 +58,7 @@ export default function NotFound() {
                 lineHeight: 1.7,
               }}
             >
-              Sorry, we couldn't find the page you're looking for. 
+              Sorry, we couldn&apos;t find the page you&apos;re looking for. 
               The page might have been moved, deleted, or you entered the wrong URL.
             </Typography>
             
