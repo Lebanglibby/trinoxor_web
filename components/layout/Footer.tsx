@@ -8,26 +8,18 @@ const quickLinks = [
   { label: 'Our Services', href: '/services' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Contact Us', href: '/contact' },
+  { label: 'Sitemap', href: '/sitemap-page' },
 ];
 
 const socials = [
-  { icon: <Facebook />, color: '#1877F2', href: '#' },
-  { icon: <Instagram />, color: '#E4405F', href: '#' },
-  { icon: <WhatsApp />, color: '#25D366', href: '#' },
-  { icon: <LinkedIn />, color: '#0A66C2', href: '#' },
-  { 
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    ), 
-    color: '#E7E9EA', 
-    href: '#' 
-  },
+  { icon: <Facebook />, color: '#1877F2', href: 'https://web.facebook.com/profile.php?id=61585999035434' },
+  { icon: <Instagram />, color: '#E4405F', href: 'https://www.instagram.com/trinoxor/' },
+  { icon: <WhatsApp />, color: '#25D366', href: 'https://wa.me/26778080590' },
+  { icon: <LinkedIn />, color: '#0A66C2', href: 'https://www.linkedin.com/company/trinoxor-integrated-technologies' },
 ];
 
 const contacts = [
-  { icon: <Email fontSize="small" />, text: 'info@trinoxor.com', href: 'mailto:info@trinoxor.com' },
+  { icon: <Email fontSize="small" />, text: 'trinoxorbw@gmail.com', href: 'mailto:trinoxorbw@gmail.com' },
   { icon: <Phone fontSize="small" />, text: '(+267) 78080590', href: 'tel:+26778080590' },
   { icon: <LocationOn fontSize="small" />, text: 'Serving Businesses Worldwide' },
 ];

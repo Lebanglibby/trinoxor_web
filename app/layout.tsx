@@ -10,11 +10,11 @@ const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Trinoxor | Technology Solutions Company in Botswana',
-    template: '%s | Trinoxor',
+    default: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
+    template: '%s | Trinoxor Integrated Technologies',
   },
   description:
-    'Trinoxor is a Botswana-based technology solutions company offering web design & development, mobile app development, cloud hosting, and IT support. Secure · Scalable · Seamless.',
+    'Trinoxor Integrated Technologies is a Botswana-based technology solutions company offering web design & development, mobile app development, cloud hosting, and IT support. Secure · Scalable · Seamless.',
   keywords: [
     'web development Botswana',
     'mobile app development Botswana',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     'cloud hosting Botswana',
     'affordable website Botswana',
   ],
-  authors: [{ name: 'Trinoxor', url: BASE_URL }],
-  creator: 'Trinoxor',
-  publisher: 'Trinoxor',
+  authors: [{ name: 'Trinoxor Integrated Technologies', url: BASE_URL }],
+  creator: 'Trinoxor Integrated Technologies',
+  publisher: 'Trinoxor Integrated Technologies',
   category: 'Technology',
   robots: {
     index: true,
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_BW',
     url: BASE_URL,
-    siteName: 'Trinoxor',
-    title: 'Trinoxor | Technology Solutions Company in Botswana',
+    siteName: 'Trinoxor Integrated Technologies',
+    title: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
     description:
       'Modern, reliable, and scalable technology solutions for businesses in Botswana. Web development, mobile apps, cloud hosting & IT support.',
     images: [
@@ -55,14 +55,14 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/images/logos/final_logo.png`,
         width: 1200,
         height: 630,
-        alt: 'Trinoxor - Technology Solutions Company',
+        alt: 'Trinoxor Integrated Technologies - Technology Solutions Company',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trinoxor | Technology Solutions Company in Botswana',
+    title: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
     description:
       'Modern, reliable, and scalable technology solutions for businesses in Botswana.',
     images: [`${BASE_URL}/images/logos/final_logo.png`],

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Real Results for Real Businesses — Trinoxor',
+  title: 'Portfolio | Real Results for Real Businesses — Trinoxor Integrated Technologies',
   description:
     'See how Trinoxor has helped businesses in Botswana grow with web development, mobile apps, and cloud solutions. 50+ successful projects, 40+ happy clients.',
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE_URL}/portfolio` },
   openGraph: {
-    title: 'Portfolio | Trinoxor — Real Results for Real Businesses',
+    title: 'Portfolio | Trinoxor Integrated Technologies — Real Results for Real Businesses',
     description:
       '50+ successful projects across web development, mobile apps, and cloud hosting. See how Trinoxor delivers measurable results for businesses in Botswana.',
     url: `${BASE_URL}/portfolio`,

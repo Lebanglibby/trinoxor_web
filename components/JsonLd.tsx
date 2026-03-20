@@ -5,7 +5,7 @@ export default function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${BASE_URL}/#organization`,
-    name: 'Trinoxor',
+    name: 'Trinoxor Integrated Technologies',
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
@@ -15,7 +15,7 @@ export default function JsonLd() {
     },
     image: `${BASE_URL}/images/logos/final_logo.png`,
     description:
-      'Trinoxor is a technology solutions company in Botswana offering web design & development, mobile app development, cloud hosting, and IT support.',
+      'Trinoxor Integrated Technologies is a technology solutions company in Botswana offering web design & development, mobile app development, cloud hosting, and IT support.',
     priceRange: 'P400 - P15,000+',
     currenciesAccepted: 'BWP',
     paymentAccepted: 'Cash, Bank Transfer, Mobile Money',
@@ -48,8 +48,9 @@ export default function JsonLd() {
       },
     ],
     sameAs: [
-      'https://www.facebook.com/trinoxor',
-      'https://www.linkedin.com/company/trinoxor',
+      'https://web.facebook.com/profile.php?id=61585999035434',
+      'https://www.linkedin.com/company/trinoxor-integrated-technologies',
+      'https://www.instagram.com/trinoxor/',
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -95,10 +96,10 @@ export default function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
-    name: 'Trinoxor',
+    name: 'Trinoxor Integrated Technologies',
     url: BASE_URL,
     description:
-      'Technology solutions company in Botswana — web development, mobile apps, hosting & IT support.',
+      'Trinoxor Integrated Technologies — Technology solutions company in Botswana — web development, mobile apps, hosting & IT support.',
     publisher: { '@id': `${BASE_URL}/#organization` },
     inLanguage: 'en-BW',
   };
