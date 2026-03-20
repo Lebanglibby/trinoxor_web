@@ -10,22 +10,31 @@ const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
+    default: 'Trinoxor Integrated Technologies | Web Development & IT Solutions in Botswana',
     template: '%s | Trinoxor Integrated Technologies',
   },
   description:
-    'Trinoxor Integrated Technologies is a Botswana-based technology solutions company offering web design & development, mobile app development, cloud hosting, and IT support. Secure · Scalable · Seamless.',
+    'Trinoxor Integrated Technologies — Botswana\'s trusted tech company. We build websites from P1,200, mobile apps from P5,000, and provide cloud hosting & IT support in Gaborone. Secure · Scalable · Seamless.',
   keywords: [
     'web development Botswana',
-    'mobile app development Botswana',
-    'IT support Gaborone',
-    'web hosting Botswana',
-    'technology solutions Botswana',
     'website design Gaborone',
-    'Trinoxor',
-    'software company Botswana',
-    'cloud hosting Botswana',
     'affordable website Botswana',
+    'mobile app development Botswana',
+    'Android app developer Botswana',
+    'IT support Gaborone',
+    'IT support Botswana',
+    'web hosting Botswana',
+    'cloud hosting Botswana',
+    'technology solutions Botswana',
+    'software company Botswana',
+    'hire web developer Botswana',
+    'best IT company Gaborone',
+    'Trinoxor',
+    'Trinoxor Integrated Technologies',
+    'tech company Gaborone',
+    'digital solutions Botswana',
+    'e-commerce website Botswana',
+    'SEO Botswana',
   ],
   authors: [{ name: 'Trinoxor Integrated Technologies', url: BASE_URL }],
   creator: 'Trinoxor Integrated Technologies',
@@ -47,9 +56,9 @@ export const metadata: Metadata = {
     locale: 'en_BW',
     url: BASE_URL,
     siteName: 'Trinoxor Integrated Technologies',
-    title: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
+    title: 'Trinoxor Integrated Technologies | Web Development & IT Solutions in Botswana',
     description:
-      'Modern, reliable, and scalable technology solutions for businesses in Botswana. Web development, mobile apps, cloud hosting & IT support.',
+      'Botswana\'s trusted tech partner — web design from P1,200, mobile apps from P5,000, cloud hosting & IT support. Serving Gaborone and beyond. Get a free quote today.',
     images: [
       {
         url: `${BASE_URL}/images/logos/final_logo.png`,
@@ -62,14 +71,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trinoxor Integrated Technologies | Technology Solutions Company in Botswana',
+    site: '@trinoxor',
+    creator: '@trinoxor',
+    title: 'Trinoxor Integrated Technologies | Web Development & IT Solutions in Botswana',
     description:
-      'Modern, reliable, and scalable technology solutions for businesses in Botswana.',
+      'Botswana\'s trusted tech partner — web design, mobile apps, cloud hosting & IT support. Get a free quote today.',
     images: [`${BASE_URL}/images/logos/final_logo.png`],
   },
-  alternates: {
-    canonical: BASE_URL,
-  },
+
   icons: {
     icon: [
       { url: '/images/logos/favicon_logo.png', type: 'image/png' },
@@ -90,7 +99,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-BW">
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />

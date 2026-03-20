@@ -85,6 +85,7 @@ export default function HeroNew() {
               </Box>
 
               <Typography
+                component="p"
                 variant="h5"
                 sx={{
                   color: '#6B7280',

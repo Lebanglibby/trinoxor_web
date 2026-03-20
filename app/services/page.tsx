@@ -210,7 +210,7 @@ export default function Services() {
             >
               Our Services
             </Typography>
-            <Typography variant="h6" sx={{ fontSize: { xs: '0.95rem', md: '1.2rem' }, color: '#64748B', fontWeight: 400, lineHeight: 1.8, maxWidth: '700px', mx: 'auto', px: { xs: 2, md: 0 } }}>
+            <Typography component="p" variant="h6" sx={{ fontSize: { xs: '0.95rem', md: '1.2rem' }, color: '#64748B', fontWeight: 400, lineHeight: 1.8, maxWidth: '700px', mx: 'auto', px: { xs: 2, md: 0 } }}>
               Comprehensive technology solutions designed to help your business thrive in the digital world.
             </Typography>
           </Box>
@@ -292,7 +292,7 @@ export default function Services() {
                         {/* Content on top of image */}
                         <Box sx={{ position: 'relative', zIndex: 1, p: { xs: 4, md: 5 } }}>
                           <Box sx={{ mb: 2, opacity: 0.95 }}>{service.icon}</Box>
-                          <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5, fontSize: { xs: '1.4rem', md: '1.7rem' }, lineHeight: 1.3 }}>
+                          <Typography variant="h2" component="h2" sx={{ fontWeight: 800, mb: 1.5, fontSize: { xs: '1.4rem', md: '1.7rem' }, lineHeight: 1.3 }}>
                             {service.title}
                           </Typography>
                           <Typography variant="body2" sx={{ opacity: 0.85, lineHeight: 1.7, mb: 3, fontSize: '0.95rem' }}>
@@ -472,7 +472,7 @@ export default function Services() {
                 >
                   <Typography variant="caption" sx={{ color: '#8B5CF6', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '1px' }}>{step.step}</Typography>
                   <Avatar sx={{ width: 56, height: 56, bgcolor: '#EDE9FE', color: '#8B5CF6', mx: 'auto', my: 1.5 }}>{step.icon}</Avatar>
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, fontSize: '1rem', color: '#1F2937' }}>{step.title}</Typography>
+                  <Typography variant="h3" component="h3" sx={{ fontWeight: 700, mb: 1, fontSize: '1rem', color: '#1F2937' }}>{step.title}</Typography>
                   <Typography variant="body2" sx={{ color: '#6B7280', lineHeight: 1.6, fontSize: '0.85rem' }}>{step.description}</Typography>
                 </Box>
               </Grid>
@@ -536,7 +536,7 @@ export default function Services() {
           <Typography variant="h2" sx={{ fontSize: { xs: '1.6rem', md: '2.8rem' }, fontWeight: 900, color: 'white', mb: 2, letterSpacing: '-0.02em' }}>
             Ready to Get Started?
           </Typography>
-          <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.8)', mb: 5, fontWeight: 400, lineHeight: 1.7, fontSize: { xs: '0.95rem', md: '1.1rem' } }}>
+          <Typography component="p" variant="h6" sx={{ color: 'rgba(255,255,255,0.8)', mb: 5, fontWeight: 400, lineHeight: 1.7, fontSize: { xs: '0.95rem', md: '1.1rem' } }}>
             Let&apos;s discuss how we can help transform your business with the right technology solution.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">

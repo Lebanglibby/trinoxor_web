@@ -3,24 +3,33 @@ import type { Metadata } from 'next';
 const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Real Results for Real Businesses — Trinoxor Integrated Technologies',
+  title: 'Portfolio | 50+ Successful Projects in Botswana — Trinoxor Integrated Technologies',
   description:
-    'See how Trinoxor has helped businesses in Botswana grow with web development, mobile apps, and cloud solutions. 50+ successful projects, 40+ happy clients.',
+    'See real results from Trinoxor Integrated Technologies: e-commerce sites, mobile apps, cloud migrations & more. 50+ projects completed, 40+ happy clients across Botswana. View our case studies.',
   keywords: [
-    'Trinoxor portfolio',
-    'web development projects Botswana',
-    'mobile app projects Botswana',
-    'case studies Botswana tech',
+    'web development portfolio Botswana',
     'website examples Botswana',
-    'Trinoxor work',
+    'mobile app projects Gaborone',
+    'IT case studies Botswana',
+    'e-commerce website examples Botswana',
+    'Trinoxor projects',
+    'web design examples Gaborone',
+    'successful tech projects Botswana',
   ],
   alternates: { canonical: `${BASE_URL}/portfolio` },
   openGraph: {
-    title: 'Portfolio | Trinoxor Integrated Technologies — Real Results for Real Businesses',
+    type: 'website',
+    title: '50+ Successful Projects in Botswana | Trinoxor Portfolio',
     description:
-      '50+ successful projects across web development, mobile apps, and cloud hosting. See how Trinoxor delivers measurable results for businesses in Botswana.',
+      'Real results for real businesses — e-commerce, mobile apps, cloud hosting & IT solutions. 50+ projects, 40+ clients. See how Trinoxor delivers measurable growth.',
     url: `${BASE_URL}/portfolio`,
-    images: [{ url: `${BASE_URL}/images/logos/final_logo.png`, width: 1200, height: 630, alt: 'Trinoxor Portfolio' }],
+    images: [{ url: `${BASE_URL}/images/logos/final_logo.png`, width: 1200, height: 630, alt: 'Trinoxor Portfolio — 50+ Projects in Botswana' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '50+ Successful Projects in Botswana | Trinoxor Portfolio',
+    description: 'E-commerce, mobile apps, cloud & IT solutions. 50+ projects, 40+ happy clients across Botswana.',
+    images: [`${BASE_URL}/images/logos/final_logo.png`],
   },
 };
 

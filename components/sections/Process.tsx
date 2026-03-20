@@ -195,7 +195,8 @@ export default function Process() {
 
                     {/* Content */}
                     <Typography
-                      variant="h6"
+                      variant="h3"
+                      component="h3"
                       sx={{
                         color: '#1F2937',
                         fontWeight: 700,

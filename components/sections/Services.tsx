@@ -207,7 +207,8 @@ export default function Services() {
                     {/* Content */}
                     <Box sx={{ position: 'relative', zIndex: 1 }}>
                       <Typography
-                        variant="h5"
+                        variant="h3"
+                        component="h3"
                         sx={{
                           color: '#1F2937',
                           fontWeight: 800,

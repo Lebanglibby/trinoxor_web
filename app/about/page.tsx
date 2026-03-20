@@ -133,6 +133,7 @@ export default function About() {
               </Box>
             </Typography>
             <Typography
+              component="p"
               variant="h6"
               sx={{
                 fontSize: { xs: '0.95rem', md: '1.2rem' },
@@ -343,7 +344,8 @@ export default function About() {
                       {value.icon}
                     </Box>
                     <Typography
-                      variant="h6"
+                      variant="h3"
+                      component="h3"
                       sx={{
                         mb: 2,
                         fontWeight: 700,
