@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
+
 export const metadata: Metadata = {
   title: 'Contact Us | Get a Free Quote — Trinoxor Botswana',
   description:
@@ -12,13 +14,13 @@ export const metadata: Metadata = {
     'hire web developer Botswana',
     'Trinoxor contact',
   ],
-  alternates: { canonical: 'https://www.trinoxor.co.bw/contact' },
+  alternates: { canonical: `${BASE_URL}/contact` },
   openGraph: {
     title: 'Contact Trinoxor | Free Consultation & Quote',
     description:
       'Get in touch with Trinoxor for web development, mobile apps, hosting or IT support. Free consultation available. Based in Gaborone, Botswana.',
-    url: 'https://www.trinoxor.co.bw/contact',
-    images: [{ url: '/images/logos/final_logo.png', width: 1200, height: 630, alt: 'Contact Trinoxor' }],
+    url: `${BASE_URL}/contact`,
+    images: [{ url: `${BASE_URL}/images/logos/final_logo.png`, width: 1200, height: 630, alt: 'Contact Trinoxor' }],
   },
 };
 

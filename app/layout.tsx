@@ -5,7 +5,7 @@ import theme from '@/lib/theme';
 import JsonLd from '@/components/JsonLd';
 import './globals.css';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://trinoxor.web.app';
+const BASE_URL = 'https://trinoxorb12--trinoxor-bw.us-east4.hosted.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'Trinoxor',
     'software company Botswana',
     'cloud hosting Botswana',
-    'Next.js developer Botswana',
+    'affordable website Botswana',
   ],
   authors: [{ name: 'Trinoxor', url: BASE_URL }],
   creator: 'Trinoxor',
@@ -34,7 +34,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   openGraph: {
     type: 'website',
@@ -43,13 +49,14 @@ export const metadata: Metadata = {
     siteName: 'Trinoxor',
     title: 'Trinoxor | Technology Solutions Company in Botswana',
     description:
-      'Modern, reliable, and scalable technology solutions for businesses in Botswana and beyond. Web development, mobile apps, cloud hosting & IT support.',
+      'Modern, reliable, and scalable technology solutions for businesses in Botswana. Web development, mobile apps, cloud hosting & IT support.',
     images: [
       {
-        url: '/images/logos/final_logo.png',
+        url: `${BASE_URL}/images/logos/final_logo.png`,
         width: 1200,
         height: 630,
         alt: 'Trinoxor - Technology Solutions Company',
+        type: 'image/png',
       },
     ],
   },
@@ -57,23 +64,22 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Trinoxor | Technology Solutions Company in Botswana',
     description:
-      'Modern, reliable, and scalable technology solutions for businesses in Botswana and beyond.',
-    images: ['/images/logos/final_logo.png'],
-    creator: '@trinoxor',
+      'Modern, reliable, and scalable technology solutions for businesses in Botswana.',
+    images: [`${BASE_URL}/images/logos/final_logo.png`],
   },
   alternates: {
     canonical: BASE_URL,
   },
   icons: {
-    icon: '/images/logos/favicon_logo.png',
-    apple: '/images/logos/favicon_logo.png',
+    icon: [
+      { url: '/images/logos/favicon_logo.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/images/logos/favicon_logo.png', type: 'image/png' },
+    ],
     shortcut: '/images/logos/favicon_logo.png',
   },
   manifest: '/manifest.json',
-  verification: {
-    // google: 'your-google-site-verification-code',
-    // yandex: 'your-yandex-verification-code',
-  },
 };
 
 export const viewport = {
@@ -85,14 +91,12 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <JsonLd />
-      </head>
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           {children}
         </ThemeProvider>
+        <JsonLd />
       </body>
     </html>
   );
