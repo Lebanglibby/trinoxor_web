@@ -1,12 +1,13 @@
 'use client';
 import { Box, Container, Typography, Button, Stack, Grid, Chip } from '@mui/material';
 import { ArrowForward, PlayArrow } from '@mui/icons-material';
+import { Monitor, Smartphone, Cloud, Server, Code, Zap, TrendingUp, Globe } from 'lucide-react';
 
 export default function HeroNew() {
   const services = [
-    { name: 'Website Design', color: '#10B981', icon: '🎨' },
-    { name: 'Mobile Applications', color: '#8B5CF6', icon: '📱' },
-    { name: 'IT Support & Hosting', color: '#F59E0B', icon: '⚡' }
+    { name: 'Website Design', color: '#1E3A8A', icon: Monitor },
+    { name: 'Mobile Applications', color: '#F59E0B', icon: Smartphone },
+    { name: 'IT Support & Hosting', color: '#10B981', icon: Server }
   ];
 
   return (
@@ -40,38 +41,7 @@ export default function HeroNew() {
       <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
           <Grid item xs={12} lg={7}>
-            <Stack spacing={{ xs: 4, md: 6, lg: 8 }} alignItems={{ xs: 'center', lg: 'flex-start' }}>
-              {/* Enhanced Badge */}
-              <Box>
-                <Chip
-                  label={
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <Box
-                        sx={{
-                          width: 8,
-                          height: 8,
-                          bgcolor: '#10B981',
-                          borderRadius: '50%',
-                          animation: 'pulse 2s ease-in-out infinite',
-                        }}
-                      />
-                      Trinoxor • Digital Solutions
-                    </Box>
-                  }
-                  sx={{
-                    background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%)',
-                    color: '#1F2937',
-                    border: '1px solid rgba(139, 92, 246, 0.3)',
-                    backdropFilter: 'blur(10px)',
-                    px: 2,
-                    py: 1,
-                    fontSize: '0.9rem',
-                    fontWeight: 600,
-                  }}
-                />
-              </Box>
-
-              {/* Enhanced Headline */}
+            <Stack spacing={{ xs: 3, md: 4 }} alignItems={{ xs: 'center', lg: 'flex-start' }}>
               <Box textAlign={{ xs: 'center', lg: 'left' }}>
                 <Typography
                   variant="h1"
@@ -114,34 +84,6 @@ export default function HeroNew() {
                 </Typography>
               </Box>
 
-              {/* Enhanced Services */}
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} flexWrap="wrap" justifyContent={{ xs: 'center', lg: 'flex-start' }} sx={{ gap: { xs: 1, sm: 2 } }}>
-                {services.map((service, index) => (
-                  <Chip
-                    key={service.name}
-                    icon={<span style={{ fontSize: '1.5rem' }}>{service.icon}</span>}
-                    label={service.name}
-                    sx={{
-                      background: 'rgba(255, 255, 255, 0.8)',
-                      backdropFilter: 'blur(10px)',
-                      color: '#1F2937',
-                      border: '1px solid rgba(0, 0, 0, 0.1)',
-                      px: { xs: 1.5, sm: 2 },
-                      py: { xs: 0.5, sm: 1 },
-                      fontSize: '1rem',
-                      fontWeight: 600,
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        background: 'rgba(255, 255, 255, 0.9)',
-                        transform: 'scale(1.05)',
-                        borderColor: service.color,
-                      },
-                    }}
-                  />
-                ))}
-              </Stack>
-
-              {/* Enhanced Description */}
               <Typography
                 variant="h5"
                 sx={{
@@ -168,7 +110,6 @@ export default function HeroNew() {
                 that help businesses attract customers and operate more efficiently.
               </Typography>
 
-              {/* Enhanced CTA Buttons */}
               <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={{ xs: 3, md: 4 }}
@@ -244,7 +185,6 @@ export default function HeroNew() {
             </Stack>
           </Grid>
 
-          {/* Enhanced Right Visual */}
           <Grid item xs={12} lg={5} sx={{ display: { xs: 'none', md: 'block' } }}>
             <Box
               sx={{
@@ -255,102 +195,144 @@ export default function HeroNew() {
                 justifyContent: 'center',
               }}
             >
-              {/* Enhanced Floating Icons */}
+              {/* Floating Icons */}
               {[
-                { icon: '☁️', color: '#10B981', top: 80, left: 40, delay: 0, size: 70 },
-                { icon: '🌐', color: '#8B5CF6', top: 60, right: 50, delay: 1, size: 80 },
-                { icon: '📱', color: '#F59E0B', bottom: 140, left: 30, delay: 2, size: 75 },
-                { icon: '📊', color: '#06B6D4', bottom: 80, right: 70, delay: 3, size: 65 },
-                { icon: '⚡', color: '#EF4444', top: 200, left: 10, delay: 1.5, size: 60 },
-                { icon: '🔧', color: '#8B5CF6', bottom: 200, right: 20, delay: 2.5, size: 55 },
-              ].map((item, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    position: 'absolute',
-                    ...item,
-                    width: item.size,
-                    height: item.size,
-                    background: `linear-gradient(135deg, ${item.color}20 0%, ${item.color}40 100%)`,
-                    borderRadius: 3,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: `0 8px 25px ${item.color}30`,
-                    border: `2px solid ${item.color}50`,
-                    backdropFilter: 'blur(10px)',
-                    cursor: 'pointer',
-                    animation: `float ${6 + index}s ease-in-out infinite`,
-                    animationDelay: `${item.delay}s`,
-                    '&:hover': {
-                      transform: 'scale(1.15) rotate(5deg)',
-                      boxShadow: `0 15px 35px ${item.color}50`,
-                    },
-                    transition: 'all 0.4s ease',
-                  }}
-                >
-                  <Typography sx={{ fontSize: '1.8rem' }}>{item.icon}</Typography>
-                </Box>
-              ))}
+                { icon: Cloud, color: '#3B82F6', top: '5%', left: '5%', size: 65, delay: 0 },
+                { icon: Globe, color: '#1E3A8A', top: '8%', right: '8%', size: 70, delay: 0.5 },
+                { icon: Code, color: '#8B5CF6', top: '45%', left: '0%', size: 60, delay: 1 },
+                { icon: Smartphone, color: '#F59E0B', bottom: '25%', left: '8%', size: 68, delay: 1.5 },
+                { icon: TrendingUp, color: '#10B981', bottom: '12%', right: '10%', size: 62, delay: 2 },
+                { icon: Zap, color: '#EF4444', bottom: '35%', right: '2%', size: 58, delay: 2.5 },
+              ].map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <Box
+                    key={index}
+                    sx={{
+                      position: 'absolute',
+                      top: item.top,
+                      left: item.left,
+                      right: item.right,
+                      bottom: item.bottom,
+                      width: item.size,
+                      height: item.size,
+                      background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}30 100%)`,
+                      borderRadius: '20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: `0 10px 30px ${item.color}25, 0 0 0 1px ${item.color}20`,
+                      backdropFilter: 'blur(12px)',
+                      cursor: 'pointer',
+                      animation: `float ${7 + index * 0.5}s ease-in-out infinite`,
+                      animationDelay: `${item.delay}s`,
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      zIndex: 5,
+                      '&:hover': {
+                        transform: 'scale(1.15) rotate(8deg)',
+                        boxShadow: `0 15px 40px ${item.color}40, 0 0 0 2px ${item.color}40`,
+                        background: `linear-gradient(135deg, ${item.color}25 0%, ${item.color}45 100%)`,
+                        zIndex: 15,
+                      },
+                    }}
+                  >
+                    <IconComponent size={item.size * 0.45} color={item.color} strokeWidth={2.5} />
+                  </Box>
+                );
+              })}
 
-              {/* Enhanced Main Dashboard */}
+              {/* Main Dashboard */}
               <Box
                 sx={{
                   position: 'relative',
                   zIndex: 10,
-                  animation: 'float 8s ease-in-out infinite',
+                  animation: 'float 9s ease-in-out infinite',
                   cursor: 'pointer',
                   '&:hover': {
-                    transform: 'scale(1.05) rotate(-1deg)',
+                    transform: 'scale(1.03) translateY(-5px)',
                   },
-                  transition: 'transform 0.5s ease',
+                  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               >
                 <Box
                   sx={{
-                    width: 380,
-                    height: 260,
-                    background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
-                    borderRadius: 4,
-                    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.15)',
-                    border: '2px solid rgba(139, 92, 246, 0.1)',
+                    width: 420,
+                    height: 280,
+                    background: 'linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)',
+                    borderRadius: '24px',
+                    boxShadow: '0 25px 50px rgba(30, 58, 138, 0.15), 0 0 0 1px rgba(30, 58, 138, 0.08)',
                     overflow: 'hidden',
                     backdropFilter: 'blur(20px)',
                     position: 'relative',
+                    border: '1px solid rgba(255, 255, 255, 0.8)',
                     '&::before': {
                       content: '""',
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       right: 0,
-                      height: '2px',
-                      background: 'linear-gradient(90deg, #8B5CF6 0%, #F59E0B 100%)',
+                      height: '3px',
+                      background: 'linear-gradient(90deg, #1E3A8A 0%, #3B82F6 50%, #F59E0B 100%)',
                     },
                   }}
                 >
-                  {/* Enhanced Dashboard Header */}
+                  {/* Dashboard Header */}
                   <Box
                     sx={{
-                      background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
-                      height: 55,
+                      background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%)',
+                      height: 60,
                       display: 'flex',
                       alignItems: 'center',
-                      px: 3,
-                      borderBottom: '1px solid rgba(139, 92, 246, 0.1)',
+                      px: 3.5,
+                      borderBottom: '1px solid rgba(30, 58, 138, 0.08)',
                     }}
                   >
-                    <Stack direction="row" spacing={1}>
-                      <Box sx={{ width: 12, height: 12, bgcolor: '#EF4444', borderRadius: '50%', boxShadow: 1 }} />
-                      <Box sx={{ width: 12, height: 12, bgcolor: '#F59E0B', borderRadius: '50%', boxShadow: 1 }} />
-                      <Box sx={{ width: 12, height: 12, bgcolor: '#10B981', borderRadius: '50%', boxShadow: 1 }} />
+                    <Stack direction="row" spacing={1.2}>
+                      <Box 
+                        sx={{ 
+                          width: 13, 
+                          height: 13, 
+                          bgcolor: '#EF4444', 
+                          borderRadius: '50%', 
+                          boxShadow: '0 2px 8px rgba(239, 68, 68, 0.4)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { transform: 'scale(1.2)' }
+                        }} 
+                      />
+                      <Box 
+                        sx={{ 
+                          width: 13, 
+                          height: 13, 
+                          bgcolor: '#F59E0B', 
+                          borderRadius: '50%', 
+                          boxShadow: '0 2px 8px rgba(245, 158, 11, 0.4)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { transform: 'scale(1.2)' }
+                        }} 
+                      />
+                      <Box 
+                        sx={{ 
+                          width: 13, 
+                          height: 13, 
+                          bgcolor: '#10B981', 
+                          borderRadius: '50%', 
+                          boxShadow: '0 2px 8px rgba(16, 185, 129, 0.4)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { transform: 'scale(1.2)' }
+                        }} 
+                      />
                     </Stack>
                     <Typography
                       variant="h6"
                       sx={{
                         ml: 3,
-                        color: '#1F2937',
-                        fontWeight: 700,
-                        fontSize: '1.1rem',
+                        background: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        fontWeight: 800,
+                        fontSize: '1.15rem',
+                        letterSpacing: '-0.02em',
                       }}
                     >
                       Trinoxor Dashboard
@@ -360,167 +342,163 @@ export default function HeroNew() {
                         label="Live"
                         size="small"
                         sx={{
-                          bgcolor: 'rgba(16, 185, 129, 0.2)',
-                          color: '#10B981',
-                          fontWeight: 700,
-                          fontSize: '0.7rem',
-                        }}
-                      />
-                    </Box>
-                  </Box>
-
-                  {/* Enhanced Dashboard Content */}
-                  <Box sx={{ p: 3 }}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                      <Typography variant="h6" sx={{ color: '#1F2937', fontWeight: 700, fontSize: '1rem' }}>
-                        Performance Metrics
-                      </Typography>
-                      <Chip
-                        label="↗ +24%"
-                        size="small"
-                        sx={{
                           bgcolor: 'rgba(16, 185, 129, 0.15)',
                           color: '#10B981',
-                          fontWeight: 700,
+                          fontWeight: 800,
                           fontSize: '0.75rem',
+                          height: 26,
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          '& .MuiChip-label': {
+                            px: 1.5,
+                          },
+                        }}
+                      />
+                    </Box>
+                  </Box>
+
+                  {/* Dashboard Content */}
+                  <Box sx={{ p: 3.5, height: 220, overflow: 'hidden', position: 'relative' }}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={2.5}>
+                      <Typography 
+                        variant="h6" 
+                        sx={{ 
+                          color: '#1F2937', 
+                          fontWeight: 800, 
+                          fontSize: '1.05rem',
+                          letterSpacing: '-0.01em',
+                        }}
+                      >
+                        Our Services
+                      </Typography>
+                      <Chip
+                        label="3 Active"
+                        size="small"
+                        sx={{
+                          bgcolor: 'rgba(59, 130, 246, 0.1)',
+                          color: '#3B82F6',
+                          fontWeight: 700,
+                          fontSize: '0.7rem',
+                          height: 24,
+                          border: '1px solid rgba(59, 130, 246, 0.2)',
                         }}
                       />
                     </Box>
 
-                    <Stack spacing={2}>
-                      {[
-                        { label: 'Website Performance', width: 85, color: '#8B5CF6', value: '92%' },
-                        { label: 'Mobile Optimization', width: 70, color: '#F59E0B', value: '88%' },
-                        { label: 'Security Score', width: 95, color: '#10B981', value: '98%' },
-                        { label: 'User Experience', width: 80, color: '#06B6D4', value: '94%' },
-                      ].map((item, index) => (
-                        <Box key={index}>
-                          <Box display="flex" justifyContent="space-between" alignItems="center" mb={0.5}>
-                            <Typography variant="body2" sx={{ color: '#6B7280', fontWeight: 600, fontSize: '0.8rem' }}>
-                              {item.label}
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: item.color, fontWeight: 700, fontSize: '0.8rem' }}>
-                              {item.value}
-                            </Typography>
-                          </Box>
-                          <Box
-                            sx={{
-                              width: '100%',
-                              height: 6,
-                              bgcolor: 'rgba(0, 0, 0, 0.05)',
-                              borderRadius: 1,
-                              overflow: 'hidden',
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                width: `${item.width}%`,
-                                height: '100%',
-                                background: `linear-gradient(90deg, ${item.color} 0%, ${item.color}CC 100%)`,
-                                borderRadius: 1,
-                                animation: `progress-${index} 2s ease-out`,
-                                [`@keyframes progress-${index}`]: {
-                                  '0%': { width: '0%' },
-                                  '100%': { width: `${item.width}%` },
-                                },
-                              }}
-                            />
-                          </Box>
-                        </Box>
-                      ))}
-                    </Stack>
-                  </Box>
-                </Box>
-              </Box>
-
-              {/* Enhanced Mobile App Mockup */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  bottom: 20,
-                  right: 10,
-                  width: 120,
-                  height: 220,
-                  background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
-                  borderRadius: 6,
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)',
-                  border: '2px solid rgba(245, 158, 11, 0.2)',
-                  overflow: 'hidden',
-                  animation: 'float 5s ease-in-out infinite',
-                  animationDelay: '1s',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    transform: 'scale(1.1) rotate(-3deg)',
-                    boxShadow: '0 35px 70px rgba(245, 158, 11, 0.3)',
-                  },
-                  transition: 'all 0.5s ease',
-                }}
-              >
-                {/* Enhanced Mobile Header */}
-                <Box
-                  sx={{
-                    background: 'linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%)',
-                    height: 45,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'relative',
-                  }}
-                >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: 'white',
-                      fontWeight: 700,
-                      fontSize: '0.85rem',
-                    }}
-                  >
-                    Mobile App
-                  </Typography>
-                </Box>
-
-                {/* Enhanced Mobile Content */}
-                <Box sx={{ p: 2 }}>
-                  <Stack spacing={1.5} mb={2}>
-                    {[
-                      { width: '100%', color: '#F59E0B', label: 'Dashboard' },
-                      { width: '80%', color: '#8B5CF6', label: 'Analytics' },
-                      { width: '90%', color: '#10B981', label: 'Reports' },
-                    ].map((item, index) => (
-                      <Box key={index}>
-                        <Typography variant="caption" sx={{ color: '#6B7280', fontSize: '0.7rem', mb: 0.5 }}>
-                          {item.label}
-                        </Typography>
-                        <Box
-                          sx={{
-                            width: item.width,
-                            height: 6,
-                            background: `linear-gradient(90deg, ${item.color} 0%, ${item.color}CC 100%)`,
-                            borderRadius: 1,
-                            animation: `mobile-progress-${index} 2s ease-out`,
-                            [`@keyframes mobile-progress-${index}`]: {
-                              '0%': { width: '0%' },
-                              '100%': { width: item.width },
-                            },
-                          }}
-                        />
-                      </Box>
-                    ))}
-                  </Stack>
-
-                  <Stack spacing={0.8}>
-                    {[90, 60, 75, 45].map((width, index) => (
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        height: 160,
+                        overflow: 'hidden',
+                      }}
+                    >
                       <Box
-                        key={index}
                         sx={{
-                          width: `${width}%`,
-                          height: 4,
-                          bgcolor: '#E5E7EB',
-                          borderRadius: 1,
+                          animation: 'scroll-services 12s linear infinite',
+                          '@keyframes scroll-services': {
+                            '0%': { transform: 'translateY(0)' },
+                            '33.33%': { transform: 'translateY(0)' },
+                            '40%': { transform: 'translateY(-72px)' },
+                            '73.33%': { transform: 'translateY(-72px)' },
+                            '80%': { transform: 'translateY(-144px)' },
+                            '93.33%': { transform: 'translateY(-144px)' },
+                            '100%': { transform: 'translateY(0)' },
+                          },
                         }}
-                      />
-                    ))}
-                  </Stack>
+                      >
+                        <Stack spacing={2.2}>
+                          {[
+                            { 
+                              icon: Monitor, 
+                              label: 'Web Development', 
+                              color: '#1E3A8A', 
+                              subtitle: 'Modern & Responsive',
+                              gradient: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)'
+                            },
+                            { 
+                              icon: Smartphone, 
+                              label: 'Mobile Apps', 
+                              color: '#F59E0B', 
+                              subtitle: 'iOS & Android',
+                              gradient: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)'
+                            },
+                            { 
+                              icon: Server, 
+                              label: 'Cloud Hosting', 
+                              color: '#10B981', 
+                              subtitle: 'Reliable & Secure',
+                              gradient: 'linear-gradient(135deg, #10B981 0%, #34D399 100%)'
+                            },
+                          ].map((item, index) => {
+                            const IconComponent = item.icon;
+                            return (
+                              <Box 
+                                key={index}
+                                sx={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: 2.5,
+                                  p: 1.8,
+                                  borderRadius: '16px',
+                                  background: `${item.color}06`,
+                                  border: `1px solid ${item.color}15`,
+                                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                                  cursor: 'pointer',
+                                  minHeight: 64,
+                                  '&:hover': {
+                                    background: `${item.color}12`,
+                                    transform: 'translateX(6px)',
+                                    boxShadow: `0 8px 20px ${item.color}20`,
+                                    borderColor: `${item.color}30`,
+                                  },
+                                }}
+                              >
+                                <Box
+                                  sx={{
+                                    width: 44,
+                                    height: 44,
+                                    borderRadius: '14px',
+                                    background: item.gradient,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    flexShrink: 0,
+                                    boxShadow: `0 4px 12px ${item.color}30`,
+                                    transition: 'all 0.3s ease',
+                                  }}
+                                >
+                                  <IconComponent size={22} color="white" strokeWidth={2.5} />
+                                </Box>
+                                <Box flex={1}>
+                                  <Typography 
+                                    variant="body2" 
+                                    sx={{ 
+                                      color: '#1F2937', 
+                                      fontWeight: 700, 
+                                      fontSize: '0.9rem',
+                                      mb: 0.4,
+                                      letterSpacing: '-0.01em',
+                                    }}
+                                  >
+                                    {item.label}
+                                  </Typography>
+                                  <Typography 
+                                    variant="caption" 
+                                    sx={{ 
+                                      color: '#6B7280', 
+                                      fontSize: '0.72rem',
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {item.subtitle}
+                                  </Typography>
+                                </Box>
+                              </Box>
+                            );
+                          })}
+                        </Stack>
+                      </Box>
+                    </Box>
+                  </Box>
                 </Box>
               </Box>
 
@@ -529,15 +507,30 @@ export default function HeroNew() {
                 sx={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, rgba(245, 158, 11, 0.15) 50%, transparent 70%)',
+                  background: 'radial-gradient(ellipse at center, rgba(30, 58, 138, 0.15) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%)',
                   borderRadius: 4,
+                  filter: 'blur(80px)',
+                  zIndex: -1,
+                  animation: 'glow-pulse 8s ease-in-out infinite',
+                  '@keyframes glow-pulse': {
+                    '0%, 100%': { opacity: 0.6 },
+                    '50%': { opacity: 0.9 },
+                  },
+                }}
+              />
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '20%',
+                  right: '10%',
+                  width: 200,
+                  height: 200,
+                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%)',
+                  borderRadius: '50%',
                   filter: 'blur(60px)',
                   zIndex: -1,
                   animation: 'glow-pulse 6s ease-in-out infinite',
-                  '@keyframes glow-pulse': {
-                    '0%, 100%': { opacity: 0.5 },
-                    '50%': { opacity: 0.8 },
-                  },
+                  animationDelay: '1s',
                 }}
               />
             </Box>

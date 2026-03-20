@@ -9,145 +9,145 @@ import { useState } from 'react';
 const projects = [
   {
     id: 1,
-    title: 'TechCorp E-Commerce Platform',
-    description: 'Modern online store with payment integration, inventory management, and customer analytics.',
-    fullDescription: 'A comprehensive e-commerce solution built for TechCorp, featuring advanced inventory management, multiple payment gateways, real-time analytics, and a responsive design that increased their online sales by 300%.',
+    title: 'Retail Store E-Commerce Solution',
+    description: 'Helped a local retail business expand online with a modern e-commerce platform that increased their revenue by 250%.',
+    fullDescription: 'We built a complete online store for a growing retail business, making it easy for their customers to shop online. The new platform includes secure payments, inventory tracking, and mobile shopping - resulting in 250% revenue growth in just 6 months.',
     image: '/images/project1.jpg',
     category: 'Web Development',
-    technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis', 'AWS'],
-    color: '#8B5CF6',
+    technologies: ['Next.js', 'Secure Payments', 'Mobile-Friendly', 'Fast Loading'],
+    color: '#1E3A8A',
     icon: <Code />,
     results: [
-      '300% increase in online sales',
-      '45% improvement in conversion rate',
-      '60% faster page load times',
-      '99.9% uptime achieved'
+      '250% increase in revenue',
+      '1,500+ new online customers',
+      'Mobile sales up 180%',
+      'Customer satisfaction: 4.9/5'
     ],
     timeline: '8 weeks',
-    client: 'TechCorp Solutions',
+    client: 'Local Retail Business',
     year: '2024',
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example'
+    liveUrl: null,
+    githubUrl: null
   },
   {
     id: 2,
-    title: 'FoodieApp Mobile Application',
-    description: 'Cross-platform mobile app for food ordering with real-time tracking and payment processing.',
-    fullDescription: 'A feature-rich mobile application for restaurant ordering, including real-time order tracking, push notifications, loyalty programs, and seamless payment integration that serves over 10,000 active users.',
+    title: 'Restaurant Mobile Ordering App',
+    description: 'Created a mobile app that made ordering easier for customers and increased restaurant orders by 200%.',
+    fullDescription: 'We developed a user-friendly mobile app that lets customers order food, track deliveries, and earn rewards. The restaurant saw immediate results with more orders, happier customers, and streamlined operations.',
     image: '/images/project2.jpg',
     category: 'Mobile Development',
-    technologies: ['React Native', 'Firebase', 'Maps API', 'Push Notifications'],
-    color: '#10B981',
+    technologies: ['Mobile App', 'Order Tracking', 'Push Notifications', 'Loyalty Program'],
+    color: '#F59E0B',
     icon: <Smartphone />,
     results: [
-      '10,000+ active users',
-      '4.8/5 app store rating',
-      '25% increase in order frequency',
-      '40% reduction in order errors'
+      '200% increase in orders',
+      '3,000+ app downloads',
+      '4.8/5 customer rating',
+      '35% repeat customer rate'
     ],
-    timeline: '12 weeks',
-    client: 'FoodieChain Restaurants',
+    timeline: '10 weeks',
+    client: 'Restaurant Chain',
     year: '2024',
-    liveUrl: 'https://apps.apple.com/example',
+    liveUrl: null,
     githubUrl: null
   },
   {
     id: 3,
-    title: 'LegalFirm Professional Website',
-    description: 'Professional corporate website with CMS, SEO optimization, and performance analytics.',
-    fullDescription: 'A sophisticated website for a leading law firm, featuring client portal, case management integration, blog system, and advanced SEO that resulted in 200% increase in organic traffic.',
+    title: 'Professional Services Website',
+    description: 'Built a modern website that helped a consulting firm attract 3x more clients through improved online presence.',
+    fullDescription: 'We designed and built a professional website that showcases their services, builds trust with potential clients, and makes it easy to get in touch. The result: triple the client inquiries and top Google rankings.',
     image: '/images/project3.jpg',
     category: 'Web Design',
-    technologies: ['WordPress', 'Custom Theme', 'SEO', 'Analytics'],
-    color: '#F59E0B',
+    technologies: ['Modern Design', 'SEO Optimized', 'Contact Forms', 'Fast & Secure'],
+    color: '#10B981',
     icon: <Launch />,
     results: [
-      '200% increase in organic traffic',
-      '150% more client inquiries',
-      '90% improvement in site speed',
-      'Top 3 Google rankings achieved'
+      '3x more client inquiries',
+      'Top 3 Google rankings',
+      '85% faster website',
+      '500+ monthly visitors'
     ],
     timeline: '6 weeks',
-    client: 'Sterling Legal Group',
-    year: '2023',
-    liveUrl: 'https://example-legal.com',
+    client: 'Consulting Firm',
+    year: '2024',
+    liveUrl: null,
     githubUrl: null
   },
   {
     id: 4,
-    title: 'CloudTech Infrastructure Migration',
-    description: 'Scalable cloud hosting solution with automated backups and 99.9% uptime guarantee.',
-    fullDescription: 'Complete infrastructure overhaul and cloud migration for a growing tech company, implementing automated scaling, monitoring, and backup solutions that reduced operational costs by 40%.',
+    title: 'Business Cloud Migration',
+    description: 'Moved a growing company to reliable cloud hosting, reducing costs by 45% while improving performance.',
+    fullDescription: 'We migrated their entire business to secure cloud hosting with automatic backups and 24/7 monitoring. They now enjoy better performance, lower costs, and peace of mind knowing their data is safe.',
     image: '/images/project4.jpg',
-    category: 'Cloud & Infrastructure',
-    technologies: ['AWS', 'Docker', 'Kubernetes', 'Monitoring'],
-    color: '#1E3A8A',
+    category: 'Cloud & Hosting',
+    technologies: ['Cloud Hosting', 'Auto Backups', '24/7 Monitoring', 'Security'],
+    color: '#8B5CF6',
     icon: <Cloud />,
     results: [
-      '40% reduction in operational costs',
+      '45% cost reduction',
       '99.9% uptime achieved',
-      '75% faster deployment times',
-      'Zero data loss incidents'
+      'Zero data loss',
+      '3x faster performance'
     ],
-    timeline: '10 weeks',
-    client: 'CloudTech Innovations',
+    timeline: '8 weeks',
+    client: 'Growing Business',
     year: '2023',
     liveUrl: null,
     githubUrl: null
   },
   {
     id: 5,
-    title: 'HealthCare Patient Portal',
-    description: 'Secure patient management system with appointment scheduling and telemedicine features.',
-    fullDescription: 'HIPAA-compliant patient portal with appointment scheduling, secure messaging, prescription management, and telemedicine capabilities serving over 5,000 patients.',
+    title: 'Healthcare Appointment System',
+    description: 'Developed an online booking system that reduced phone calls by 70% and improved patient satisfaction.',
+    fullDescription: 'We created a simple online system where patients can book appointments, receive reminders, and access their information securely. The clinic staff now spend less time on the phone and more time caring for patients.',
     image: '/images/project5.jpg',
     category: 'Web Development',
-    technologies: ['React', 'Node.js', 'MongoDB', 'WebRTC', 'HIPAA'],
+    technologies: ['Online Booking', 'SMS Reminders', 'Secure Portal', 'Easy to Use'],
     color: '#EF4444',
     icon: <Security />,
     results: [
-      '5,000+ active patients',
-      '80% reduction in phone calls',
-      '95% patient satisfaction rate',
-      'HIPAA compliance achieved'
+      '70% fewer phone calls',
+      '1,200+ patients using system',
+      '95% patient satisfaction',
+      '50% fewer missed appointments'
     ],
-    timeline: '14 weeks',
-    client: 'MedCare Health Systems',
+    timeline: '12 weeks',
+    client: 'Medical Clinic',
     year: '2024',
-    liveUrl: 'https://patient-portal.example.com',
+    liveUrl: null,
     githubUrl: null
   },
   {
     id: 6,
-    title: 'FinTech Analytics Dashboard',
-    description: 'Real-time financial analytics platform with advanced reporting and data visualization.',
-    fullDescription: 'Comprehensive analytics platform for financial institutions featuring real-time data processing, interactive dashboards, automated reporting, and advanced security measures.',
+    title: 'Real Estate Property Portal',
+    description: 'Built a property listing website that helped a real estate agency close 40% more deals.',
+    fullDescription: 'We created an attractive website where potential buyers can browse properties, schedule viewings, and contact agents easily. The agency now reaches more buyers and closes deals faster than ever before.',
     image: '/images/project6.jpg',
     category: 'Web Development',
-    technologies: ['Vue.js', 'Python', 'PostgreSQL', 'D3.js', 'Redis'],
+    technologies: ['Property Listings', 'Search Filters', 'Contact Forms', 'Mobile-Friendly'],
     color: '#06B6D4',
     icon: <TrendingUp />,
     results: [
-      '50% faster report generation',
-      '90% improvement in data accuracy',
-      '30% increase in user productivity',
-      'Real-time processing achieved'
+      '40% more deals closed',
+      '2,000+ property views/month',
+      '60% increase in inquiries',
+      '4.7/5 client rating'
     ],
-    timeline: '16 weeks',
-    client: 'FinanceFlow Corp',
+    timeline: '10 weeks',
+    client: 'Real Estate Agency',
     year: '2023',
     liveUrl: null,
     githubUrl: null
   }
 ];
 
-const categories = ['All', 'Web Development', 'Mobile Development', 'Web Design', 'Cloud & Infrastructure'];
+const categories = ['All', 'Web Development', 'Mobile Development', 'Web Design', 'Cloud & Hosting'];
 
 const stats = [
-  { number: '50+', label: 'Projects Completed', icon: <Launch /> },
-  { number: '30+', label: 'Happy Clients', icon: <TrendingUp /> },
-  { number: '99.9%', label: 'Uptime Achieved', icon: <Speed /> },
-  { number: '24/7', label: 'Support Available', icon: <Security /> },
+  { number: '50+', label: 'Successful Projects', icon: <Launch /> },
+  { number: '40+', label: 'Happy Clients', icon: <TrendingUp /> },
+  { number: '99.9%', label: 'Client Satisfaction', icon: <Security /> },
+  { number: '24/7', label: 'Support Available', icon: <Speed /> },
 ];
 
 export default function Portfolio() {
@@ -199,179 +199,229 @@ export default function Portfolio() {
       <Box
         sx={{
           minHeight: '60vh',
-          background: 'linear-gradient(180deg, #F8FAFC 0%, #E5E7EB 100%)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #FFFFFF 100%)',
           display: 'flex',
           alignItems: 'center',
           pt: 12,
           position: 'relative',
+          overflow: 'hidden',
           '&::before': {
             content: '""',
             position: 'absolute',
             inset: 0,
             backgroundImage: `
-              linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px)
+              linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
+            backgroundSize: '50px 50px',
+            pointerEvents: 'none',
           },
         }}
       >
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Box textAlign="center">
             <Typography
-              variant="h1"
+              variant="overline"
               sx={{
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '4rem' },
-                background: 'linear-gradient(135deg, #1E293B 0%, #8B5CF6 70%, #F59E0B 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                mb: { xs: 3, md: 4 },
-                fontWeight: 800,
-                lineHeight: { xs: 1.2, md: 1.1 },
-                px: { xs: 2, sm: 0 },
+                color: '#F59E0B',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                letterSpacing: '2px',
+                mb: 2,
+                display: 'block',
               }}
             >
-              Our Portfolio
+              OUR WORK
             </Typography>
             <Typography
-              variant="h4"
+              variant="h1"
               sx={{
-                fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem', lg: '2rem' },
-                color: '#64748B',
-                fontWeight: 400,
-                lineHeight: 1.7,
-                maxWidth: { xs: '100%', md: '800px' },
-                mx: 'auto',
-                px: { xs: 2, sm: 0 },
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+                fontWeight: 900,
+                mb: 3,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.2,
+                color: '#1F2937',
               }}
             >
-              Explore our successful projects and see how we've helped businesses achieve their digital goals.
+              Real Results for{' '}
+              <Box
+                component="span"
+                sx={{
+                  background: 'linear-gradient(135deg, #1E3A8A 0%, #F59E0B 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Real Businesses
+              </Box>
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: { xs: '1rem', md: '1.2rem' },
+                color: '#6B7280',
+                fontWeight: 400,
+                lineHeight: 1.8,
+                maxWidth: '700px',
+                mx: 'auto',
+              }}
+            >
+              See how we have helped businesses like yours grow with modern technology solutions that deliver measurable results.
             </Typography>
           </Box>
         </Container>
       </Box>
 
-      {/* Stats Section */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#F8FAFC', position: 'relative', '&::before': { content: '""', position: 'absolute', inset: 0, backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(139, 92, 246, 0.08) 102px)` } }}>
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={{ xs: 3, md: 4 }}>
-            {stats.map((stat, index) => (
-              <Grid item xs={6} md={3} key={index}>
-                <Card
+      <Box 
+        sx={{ 
+          py: { xs: 10, md: 14 }, 
+          background: 'linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 50%, #F9FAFB 100%)',
+        }}
+      >
+        <Container maxWidth="lg">
+          <Box textAlign="center" mb={{ xs: 8, md: 10 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: '#F59E0B',
+                fontWeight: 700,
+                fontSize: '0.95rem',
+                letterSpacing: '3px',
+                mb: 2.5,
+                display: 'block',
+              }}
+            >
+              EXPLORE OUR WORK
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '1.75rem', md: '2.5rem' },
+                fontWeight: 900,
+                mb: 5,
+                color: '#1F2937',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Filter by Category
+            </Typography>
+            <Stack 
+              direction="row" 
+              spacing={{ xs: 1.5, md: 2.5 }} 
+              justifyContent="center" 
+              flexWrap="wrap" 
+              useFlexGap
+              sx={{
+                px: { xs: 2, md: 0 },
+              }}
+            >
+              {categories.map((category) => (
+                <Chip
+                  key={category}
+                  label={category}
+                  variant={selectedCategory === category ? 'filled' : 'outlined'}
+                  onClick={() => setSelectedCategory(category)}
                   sx={{
-                    textAlign: 'center',
-                    p: { xs: 3, md: 4 },
-                    border: '1px solid rgba(0, 0, 0, 0.08)',
-                    borderRadius: 3,
-                    transition: 'all 0.3s ease',
+                    px: { xs: 3, md: 4 },
+                    py: { xs: 2.5, md: 3 },
+                    borderRadius: '20px',
+                    fontSize: { xs: '0.9rem', md: '1rem' },
+                    fontWeight: 700,
+                    borderColor: selectedCategory === category ? 'transparent' : '#E5E7EB',
+                    borderWidth: 2,
+                    color: selectedCategory === category ? 'white' : '#6B7280',
+                    bgcolor: selectedCategory === category 
+                      ? 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)' 
+                      : 'white',
+                    background: selectedCategory === category 
+                      ? 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)' 
+                      : 'white',
+                    boxShadow: selectedCategory === category 
+                      ? '0 8px 24px rgba(30, 58, 138, 0.25)' 
+                      : '0 2px 8px rgba(0, 0, 0, 0.04)',
                     '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 20px 40px rgba(139, 92, 246, 0.2)',
+                      bgcolor: selectedCategory === category 
+                        ? 'linear-gradient(135deg, #1E40AF 0%, #2563EB 100%)' 
+                        : '#F9FAFB',
+                      background: selectedCategory === category 
+                        ? 'linear-gradient(135deg, #1E40AF 0%, #2563EB 100%)' 
+                        : '#F9FAFB',
+                      transform: 'translateY(-4px) scale(1.05)',
+                      boxShadow: selectedCategory === category 
+                        ? '0 12px 32px rgba(30, 58, 138, 0.35)' 
+                        : '0 4px 12px rgba(0, 0, 0, 0.08)',
+                      borderColor: selectedCategory === category ? 'transparent' : '#D1D5DB',
                     },
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'pointer',
                   }}
-                >
-                  <Avatar
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      bgcolor: '#8B5CF6',
-                      mx: 'auto',
-                      mb: 2,
-                    }}
-                  >
-                    {stat.icon}
-                  </Avatar>
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      background: 'linear-gradient(135deg, #8B5CF6 0%, #F59E0B 100%)',
-                      backgroundClip: 'text',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      fontWeight: 800,
-                      mb: 1,
-                    }}
-                  >
-                    {stat.number}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 500 }}>
-                    {stat.label}
-                  </Typography>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      <Box sx={{ py: { xs: 6, md: 8 }, position: 'relative', background: 'linear-gradient(180deg, #E5E7EB 0%, #F8FAFC 100%)', '&::before': { content: '""', position: 'absolute', inset: 0, backgroundImage: `radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)` } }}>
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Stack direction="row" spacing={2} justifyContent="center" mb={{ xs: 6, md: 8 }} flexWrap="wrap" sx={{ px: { xs: 2, sm: 0 } }}>
-            {categories.map((category) => (
-              <Chip
-                key={category}
-                label={category}
-                variant={selectedCategory === category ? 'filled' : 'outlined'}
-                onClick={() => setSelectedCategory(category)}
-                sx={{
-                  px: { xs: 2, md: 3 },
-                  py: 1,
-                  borderRadius: 3,
-                  fontSize: '1rem',
-                  fontWeight: 500,
-                  borderColor: '#8B5CF6',
-                  color: selectedCategory === category ? 'white' : '#8B5CF6',
-                  bgcolor: selectedCategory === category ? '#8B5CF6' : 'transparent',
-                  '&:hover': {
-                    bgcolor: selectedCategory === category ? '#7C3AED' : 'rgba(139, 92, 246, 0.1)',
-                  },
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                }}
-              />
-            ))}
-          </Stack>
+                />
+              ))}
+            </Stack>
+          </Box>
 
           <Grid container spacing={{ xs: 4, md: 6 }}>
             {filteredProjects.map((project, index) => (
-              <Grid item xs={12} md={6} lg={6} key={project.id}>
+              <Grid item xs={12} md={6} key={project.id}>
                 <Fade in={true} timeout={300 + index * 100}>
                   <Card
                     sx={{
                       height: '100%',
-                      borderRadius: 4,
+                      borderRadius: '28px',
                       overflow: 'hidden',
-                      border: '1px solid rgba(0, 0, 0, 0.08)',
-                      transition: 'all 0.3s ease',
+                      border: '1px solid',
+                      borderColor: `${project.color}15`,
+                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
+                      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%)',
+                      backdropFilter: 'blur(10px)',
                       '&:hover': {
-                        transform: 'translateY(-8px)',
-                        boxShadow: `0 25px 50px ${project.color}20`,
+                        transform: 'translateY(-12px) scale(1.02)',
+                        boxShadow: `0 32px 64px ${project.color}20`,
+                        borderColor: `${project.color}30`,
                       },
                     }}
                     onClick={() => handleProjectClick(project)}
                   >
                   <Box
                     sx={{
-                      height: 250,
-                      background: `linear-gradient(135deg, ${project.color}20 0%, ${project.color}10 100%)`,
+                      height: 280,
+                      background: `linear-gradient(135deg, ${project.color}15 0%, ${project.color}08 100%)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       position: 'relative',
+                      overflow: 'hidden',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: -100,
+                        right: -100,
+                        width: 300,
+                        height: 300,
+                        background: `radial-gradient(circle, ${project.color}20 0%, transparent 70%)`,
+                      },
                     }}
                   >
                     <Box
                       sx={{
-                        width: 80,
-                        height: 80,
+                        width: 100,
+                        height: 100,
                         background: project.color,
-                        borderRadius: '50%',
+                        borderRadius: '24px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'white',
+                        boxShadow: `0 16px 40px ${project.color}40`,
+                        position: 'relative',
+                        zIndex: 1,
+                        transition: 'all 0.4s ease',
+                        '&:hover': {
+                          transform: 'scale(1.1) rotate(-5deg)',
+                        },
                       }}
                     >
                       {project.icon}
@@ -380,79 +430,99 @@ export default function Portfolio() {
                       label={project.category}
                       sx={{
                         position: 'absolute',
-                        top: 16,
-                        right: 16,
+                        top: 20,
+                        right: 20,
                         bgcolor: 'white',
                         color: project.color,
-                        fontWeight: 600,
+                        fontWeight: 700,
+                        fontSize: '0.85rem',
+                        px: 2,
+                        py: 2.5,
+                        height: 'auto',
+                        boxShadow: `0 4px 12px ${project.color}20`,
                       }}
                     />
                   </Box>
                   
-                    <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-                      <Stack direction="row" spacing={1} mb={2}>
-                        <Chip
-                          label={project.category}
-                          size="small"
-                          sx={{
-                            bgcolor: `${project.color}20`,
-                            color: project.color,
-                            fontWeight: 600,
-                          }}
-                        />
+                    <CardContent sx={{ p: { xs: 4, md: 5 } }}>
+                      <Stack direction="row" spacing={1.5} mb={3}>
                         <Chip
                           label={project.year}
                           size="small"
+                          sx={{
+                            bgcolor: `${project.color}15`,
+                            color: project.color,
+                            fontWeight: 700,
+                            fontSize: '0.8rem',
+                            height: 28,
+                          }}
+                        />
+                        <Chip
+                          label={project.timeline}
+                          size="small"
                           variant="outlined"
+                          sx={{
+                            borderColor: `${project.color}30`,
+                            color: project.color,
+                            fontWeight: 600,
+                            fontSize: '0.8rem',
+                            height: 28,
+                          }}
                         />
                       </Stack>
                       
-                      <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, color: '#1F2937' }}>
+                      <Typography variant="h5" sx={{ mb: 2.5, fontWeight: 800, color: '#1F2937', fontSize: '1.5rem', letterSpacing: '-0.01em' }}>
                         {project.title}
                       </Typography>
-                      <Typography variant="body1" sx={{ mb: 3, color: '#6B7280', lineHeight: 1.7 }}>
+                      <Typography variant="body1" sx={{ mb: 3.5, color: '#6B7280', lineHeight: 1.85, fontSize: '1.05rem' }}>
                         {project.description}
                       </Typography>
                       
-                      <Stack direction="row" spacing={1} mb={3} flexWrap="wrap">
-                        {project.technologies.slice(0, 3).map((tech) => (
-                          <Chip
-                            key={tech}
-                            label={tech}
-                            size="small"
-                            sx={{
-                              bgcolor: `${project.color}10`,
-                              color: project.color,
-                              fontWeight: 500,
-                            }}
-                          />
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <Chip
-                            label={`+${project.technologies.length - 3} more`}
-                            size="small"
-                            variant="outlined"
-                          />
-                        )}
-                      </Stack>
+                      <Box mb={4}>
+                        <Typography variant="subtitle2" sx={{ color: '#9CA3AF', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '1px', mb: 1.5 }}>
+                          KEY RESULTS
+                        </Typography>
+                        <Stack spacing={1.5}>
+                          {project.results.slice(0, 2).map((result, idx) => (
+                            <Box key={idx} display="flex" alignItems="center" gap={1.5}>
+                              <Box
+                                sx={{
+                                  width: 6,
+                                  height: 6,
+                                  borderRadius: '50%',
+                                  background: project.color,
+                                  boxShadow: `0 0 8px ${project.color}50`,
+                                }}
+                              />
+                              <Typography variant="body2" sx={{ color: '#4B5563', fontWeight: 600, fontSize: '0.95rem' }}>
+                                {result}
+                              </Typography>
+                            </Box>
+                          ))}
+                        </Stack>
+                      </Box>
                       
                       <Button
-                        variant="outlined"
+                        variant="contained"
                         endIcon={<Launch />}
                         fullWidth
                         sx={{
-                          borderColor: project.color,
-                          color: project.color,
-                          borderRadius: 2,
+                          background: project.color,
+                          borderRadius: '16px',
                           textTransform: 'none',
-                          fontWeight: 600,
+                          fontWeight: 700,
+                          fontSize: '1.05rem',
+                          py: 2,
+                          boxShadow: `0 8px 24px ${project.color}30`,
                           '&:hover': {
-                            bgcolor: `${project.color}10`,
-                            borderColor: project.color,
+                            background: project.color,
+                            transform: 'translateY(-2px)',
+                            boxShadow: `0 12px 32px ${project.color}40`,
                           },
+                          transition: 'all 0.3s ease',
                         }}
                       >
-                        View Details
+                        View Full Case Study
                       </Button>
                     </CardContent>
                   </Card>
@@ -602,14 +672,49 @@ export default function Portfolio() {
         )}
       </Dialog>
 
-      <Box sx={{ py: 12, bgcolor: '#F8FAFC', position: 'relative', '&::before': { content: '""', position: 'absolute', inset: 0, backgroundImage: `radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)` } }}>
+      <Box 
+        sx={{ 
+          py: { xs: 10, md: 14 }, 
+          background: 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+          position: 'relative',
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: '50%',
+            height: '100%',
+            background: 'radial-gradient(circle at top right, rgba(245, 158, 11, 0.2) 0%, transparent 70%)',
+          },
+        }}
+      >
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Box textAlign="center">
-            <Typography variant="h2" color="primary" sx={{ mb: 4 }}>
-              Ready to Start Your Project?
+            <Typography 
+              variant="h2" 
+              sx={{ 
+                color: 'white',
+                mb: 3,
+                fontWeight: 900,
+                fontSize: { xs: '2rem', md: '3rem' },
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Ready to Grow Your Business?
             </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ mb: 6, maxWidth: '600px', mx: 'auto' }}>
-              Let's create something amazing together. Contact us to discuss your project requirements.
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: 'rgba(255, 255, 255, 0.9)', 
+                mb: 6, 
+                maxWidth: '600px', 
+                mx: 'auto',
+                lineHeight: 1.8,
+                fontSize: { xs: '1.1rem', md: '1.3rem' },
+              }}
+            >
+              Let us help you achieve results like these. Get in touch today for a free consultation.
             </Typography>
             <Link href="/contact" passHref>
               <Button
@@ -617,17 +722,23 @@ export default function Portfolio() {
                 size="large"
                 sx={{
                   px: 6,
-                  py: 2,
-                  borderRadius: 3,
+                  py: 2.5,
+                  borderRadius: '16px',
                   fontSize: '1.2rem',
-                  fontWeight: 600,
+                  fontWeight: 700,
                   textTransform: 'none',
+                  bgcolor: '#F59E0B',
+                  color: 'white',
+                  boxShadow: '0 12px 32px rgba(245, 158, 11, 0.4)',
                   '&:hover': {
-                    transform: 'translateY(-2px)',
+                    bgcolor: '#D97706',
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 16px 40px rgba(245, 158, 11, 0.5)',
                   },
+                  transition: 'all 0.3s ease',
                 }}
               >
-                Start Your Project
+                Get Started Today
               </Button>
             </Link>
           </Box>

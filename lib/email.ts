@@ -1,11 +1,10 @@
 import nodemailer from 'nodemailer';
 
-// Email configuration
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'lebanggarebantsi@gmail.com',
-    pass: 'griv cwkz xdjx bger', // App password
+    pass: 'griv cwkz xdjx bger',
   },
 });
 
@@ -19,303 +18,278 @@ export interface ContactFormData {
   message: string;
 }
 
+const LOGO_URL = 'https://www.cashplugloans.co.bw/trinoxor/trinoxor_logo.png';
+
+// Gradient ring around logo using nested table cells (email-safe)
+const logoCircle = (size: number) => {
+  return `<img src="${LOGO_URL}" alt="Trinoxor" width="${size}" height="${size}" style="width:${size}px;height:${size}px;object-fit:cover;display:block;border-radius:50%;border:4px solid #F59E0B;outline:2px solid #8B5CF6;" />`;
+};
+
+const emailHeader = () => `
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#F59E0B 0%,#D97706 30%,#1E3A8A 70%,#0F2460 100%);">
+    <tr>
+      <td align="center" style="padding:32px 24px 28px;">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="middle" style="padding-right:16px;">${logoCircle(80)}</td>
+            <td valign="middle">
+              <span style="color:#ffffff;font-size:26px;font-weight:900;letter-spacing:3px;font-family:'Segoe UI',Arial,sans-serif;text-shadow:0 2px 10px rgba(0,0,0,0.35);">TRINOXOR</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>`;
+
+const emailFooter = (year: number) => `
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0d1117;">
+    <tr>
+      <td align="center" style="padding:28px 24px 14px;">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="middle" style="padding-right:12px;">${logoCircle(56)}</td>
+            <td valign="middle">
+              <span style="color:#ffffff;font-size:17px;font-weight:900;letter-spacing:3px;font-family:'Segoe UI',Arial,sans-serif;">TRINOXOR</span>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:16px 0 0;font-size:13px;font-weight:700;letter-spacing:2.5px;font-family:'Segoe UI',Arial,sans-serif;color:#F59E0B;">Secure &nbsp;&#183;&nbsp; <span style="color:#A78BFA;">Scalable</span> &nbsp;&#183;&nbsp; <span style="color:#60A5FA;">Seamless</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding:12px 24px 22px;border-top:1px solid #1f2937;">
+        <p style="color:#4b5563;font-size:11px;margin:0;font-family:'Segoe UI',Arial,sans-serif;">&#169; ${year} Trinoxor. All rights reserved.</p>
+      </td>
+    </tr>
+  </table>`;
+
+const detailRow = (accentColor: string, label: string, value: string) => `
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+    <tr>
+      <td style="background:#f8fafc;border-radius:10px;padding:13px 16px;border-left:4px solid ${accentColor};">
+        <div style="font-size:10px;font-weight:700;color:${accentColor};text-transform:uppercase;letter-spacing:1.2px;font-family:'Segoe UI',Arial,sans-serif;margin-bottom:4px;">${label}</div>
+        <div style="font-size:15px;font-weight:600;color:#111827;font-family:'Segoe UI',Arial,sans-serif;">${value}</div>
+      </td>
+    </tr>
+  </table>`;
+
 export async function sendContactEmail(formData: ContactFormData) {
+  const year = new Date().getFullYear();
+
   try {
-    // Email to Trinoxor
+    // ── Email to Trinoxor ──────────────────────────────────────────────────────
     const mailOptions = {
-      from: 'lebanggarebantsi@gmail.com',
+      from: '"Trinoxor" <lebanggarebantsi@gmail.com>',
+      replyTo: 'trinoxorbw@gmail.com',
       to: 'trinoxorbw@gmail.com',
-      subject: `New Contact Form Submission - ${formData.name}`,
+      subject: `New Enquiry from ${formData.name}`,
       html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>New Contact Form Submission - Trinoxor</title>
-        </head>
-        <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; line-height: 1.6;">
-          <div style="max-width: 650px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            
-            <!-- Header -->
-            <div style="background: linear-gradient(135deg, #7C3AED 0%, #EC4899 35%, #F59E0B 70%, #FBBF24 100%); padding: 40px 30px; text-align: center; position: relative; overflow: hidden;">
-              <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: 0.3;"></div>
-              <div style="position: relative; z-index: 2;">
-                <div style="display: inline-flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                  <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
-                    <span style="color: white; font-weight: 900; font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">T</span>
-                  </div>
-                  <h1 style="color: white; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">TRINOXOR</h1>
-                </div>
-                <p style="color: rgba(255,255,255,0.95); margin: 0; font-size: 18px; font-weight: 500;">🚀 New Contact Form Submission</p>
-                <div style="width: 60px; height: 3px; background: rgba(255,255,255,0.4); margin: 20px auto 0; border-radius: 2px;"></div>
-              </div>
-            </div>
-            
-            <!-- Content -->
-            <div style="padding: 40px 30px;">
-              <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 25px; border-radius: 12px; margin-bottom: 30px; border-left: 5px solid #7C3AED;">
-                <h2 style="color: #1e293b; margin: 0 0 20px 0; font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                  <span style="background: #7C3AED; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 16px;">👤</span>
-                  Contact Details
-                </h2>
-                
-                <div style="display: grid; gap: 18px;">
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #7C3AED, #EC4899); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">N</div>
-                    <div>
-                      <div style="font-weight: 600; color: #7C3AED; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Full Name</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.name}</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>New Enquiry – Trinoxor</title>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;font-family:'Segoe UI',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.10);">
+
+          <!-- HEADER -->
+          <tr><td>${emailHeader()}</td></tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="padding:32px 28px;">
+
+              <!-- Section title -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                <tr>
+                  <td>
+                    <div style="display:inline-block;background:linear-gradient(135deg,#1E3A8A,#8B5CF6);border-radius:8px;padding:6px 16px;margin-bottom:12px;">
+                      <span style="color:#fff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">Contact Details</span>
                     </div>
-                  </div>
-                  
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #10B981, #059669); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">@</div>
-                    <div>
-                      <div style="font-weight: 600; color: #10B981; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Email Address</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.email}</div>
-                    </div>
-                  </div>
-                  
-                  ${formData.company ? `
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">🏢</div>
-                    <div>
-                      <div style="font-weight: 600; color: #F59E0B; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Company</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.company}</div>
-                    </div>
-                  </div>
-                  ` : ''}
-                  
-                  ${formData.service ? `
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">⚡</div>
-                    <div>
-                      <div style="font-weight: 600; color: #EC4899; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Service Interest</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.service}</div>
-                    </div>
-                  </div>
-                  ` : ''}
-                  
-                  ${formData.budget ? `
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #1E3A8A, #1E40AF); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">💰</div>
-                    <div>
-                      <div style="font-weight: 600; color: #1E3A8A; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Budget Range</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.budget}</div>
-                    </div>
-                  </div>
-                  ` : ''}
-                  
-                  ${formData.timeline ? `
-                  <div style="display: flex; align-items: center; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <div style="background: linear-gradient(135deg, #059669, #047857); color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 600;">⏰</div>
-                    <div>
-                      <div style="font-weight: 600; color: #059669; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Timeline</div>
-                      <div style="color: #374151; font-size: 16px; font-weight: 500;">${formData.timeline}</div>
-                    </div>
-                  </div>
-                  ` : ''}
-                </div>
-              </div>
-              
-              <!-- Message Section -->
-              <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 25px; border-radius: 12px; border-left: 5px solid #F59E0B; margin-bottom: 30px;">
-                <h3 style="color: #92400e; margin: 0 0 15px 0; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-                  <span style="background: #F59E0B; color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 16px;">💬</span>
-                  Project Message
-                </h3>
-                <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #fbbf24;">
-                  <p style="color: #374151; line-height: 1.8; margin: 0; font-size: 16px; white-space: pre-wrap;">${formData.message}</p>
-                </div>
-              </div>
-              
-              <!-- Action Section -->
-              <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #60a5fa;">
-                <h3 style="color: #1e40af; margin: 0 0 15px 0; font-size: 18px; font-weight: 600;">📧 Next Steps</h3>
-                <p style="color: #1e40af; margin: 0 0 20px 0; font-size: 14px;">Reply directly to: <strong style="background: white; padding: 4px 8px; border-radius: 4px; color: #7C3AED;">${formData.email}</strong></p>
-                <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                  <a href="mailto:${formData.email}" style="background: linear-gradient(135deg, #7C3AED, #EC4899); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">📧 Reply to Client</a>
-                  <a href="tel:+26778080590" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">📞 Call Client</a>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Footer -->
-            <div style="background: #1f2937; padding: 30px; text-align: center;">
-              <div style="margin-bottom: 20px;">
-                <div style="display: inline-flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #7C3AED 0%, #EC4899 35%, #F59E0B 70%, #FBBF24 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <span style="color: white; font-weight: 800; font-size: 18px;">T</span>
-                  </div>
-                  <span style="color: white; font-size: 20px; font-weight: 800; letter-spacing: -0.5px;">TRINOXOR</span>
-                </div>
-                <p style="color: #9ca3af; margin: 0; font-size: 14px; font-style: italic;">Secure • Scalable • Seamless</p>
-              </div>
-              
-              <div style="border-top: 1px solid #374151; padding-top: 20px;">
-                <p style="color: #6b7280; margin: 0; font-size: 12px;">This email was automatically generated from the Trinoxor website contact form.</p>
-                <p style="color: #6b7280; margin: 5px 0 0 0; font-size: 12px;">© ${new Date().getFullYear()} Trinoxor. All rights reserved.</p>
-              </div>
-            </div>
-            
-          </div>
-        </body>
-        </html>
-      `,
+                    <div style="height:2px;background:linear-gradient(90deg,#1E3A8A,#8B5CF6,#F59E0B);border-radius:2px;"></div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Detail rows -->
+              ${detailRow('#1E3A8A', 'Full Name', formData.name)}
+              ${detailRow('#8B5CF6', 'Email Address', formData.email)}
+              ${formData.company ? detailRow('#F59E0B', 'Company', formData.company) : ''}
+              ${formData.service ? detailRow('#10B981', 'Service Interest', formData.service) : ''}
+              ${formData.budget ? detailRow('#3B82F6', 'Budget Range', formData.budget) : ''}
+              ${formData.timeline ? detailRow('#EC4899', 'Timeline', formData.timeline) : ''}
+
+              <!-- Message -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">
+                <tr>
+                  <td style="background:#fef9f0;border-radius:12px;border-left:4px solid #F59E0B;padding:20px 20px 20px 20px;">
+                    <div style="font-size:11px;font-weight:700;color:#F59E0B;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">💬 &nbsp;Message</div>
+                    <p style="color:#374151;font-size:15px;line-height:1.8;margin:0;white-space:pre-wrap;">${formData.message}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Reply CTA -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
+                <tr>
+                  <td style="background:linear-gradient(135deg,#1E3A8A,#8B5CF6);border-radius:12px;padding:20px;text-align:center;">
+                    <p style="color:rgba(255,255,255,0.8);font-size:13px;margin:0 0 14px;">Reply directly to this enquiry</p>
+                    <a href="mailto:${formData.email}" style="display:inline-block;background:#ffffff;color:#1E3A8A;padding:11px 28px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:0.5px;">Reply to ${formData.name}</a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr><td>${emailFooter(year)}</td></tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
-    
-    // Auto-reply to customer
+
+    // ── Auto-reply to customer ─────────────────────────────────────────────────
     const autoReplyOptions = {
-      from: 'lebanggarebantsi@gmail.com',
+      from: '"Trinoxor" <lebanggarebantsi@gmail.com>',
+      replyTo: 'trinoxorbw@gmail.com',
       to: formData.email,
-      subject: 'Thank you for contacting Trinoxor - We\'ll be in touch soon!',
+      subject: "We've received your message – Trinoxor",
       html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Thank You - Trinoxor</title>
-        </head>
-        <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; line-height: 1.6;">
-          <div style="max-width: 650px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            
-            <!-- Header -->
-            <div style="background: linear-gradient(135deg, #7C3AED 0%, #EC4899 35%, #F59E0B 70%, #FBBF24 100%); padding: 40px 30px; text-align: center; position: relative; overflow: hidden;">
-              <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: 0.3;"></div>
-              <div style="position: relative; z-index: 2;">
-                <div style="display: inline-flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                  <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3);">
-                    <span style="color: white; font-weight: 900; font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">T</span>
-                  </div>
-                  <h1 style="color: white; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">TRINOXOR</h1>
-                </div>
-                <p style="color: rgba(255,255,255,0.95); margin: 0; font-size: 18px; font-weight: 500;">🎉 Thank you for reaching out!</p>
-                <div style="width: 60px; height: 3px; background: rgba(255,255,255,0.4); margin: 20px auto 0; border-radius: 2px;"></div>
-              </div>
-            </div>
-            
-            <!-- Content -->
-            <div style="padding: 40px 30px;">
-              <!-- Welcome Message -->
-              <div style="text-align: center; margin-bottom: 35px;">
-                <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);">
-                  <span style="font-size: 36px;">🚀</span>
-                </div>
-                <h2 style="color: #1e293b; margin: 0 0 15px 0; font-size: 28px; font-weight: 700;">Hi ${formData.name}!</h2>
-                <p style="color: #64748b; font-size: 18px; margin: 0; line-height: 1.6;">Thank you for contacting <strong style="color: #7C3AED;">Trinoxor</strong>! We've received your message and our team is excited to help bring your vision to life.</p>
-              </div>
-              
-              <!-- What's Next Section -->
-              <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #bbf7d0;">
-                <h3 style="color: #166534; margin: 0 0 20px 0; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 12px;">
-                  <div style="background: #10B981; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">✨</div>
-                  What happens next?
-                </h3>
-                
-                <div style="display: grid; gap: 20px;">
-                  <div style="display: flex; align-items: center; gap: 15px; padding: 18px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #10B981;">
-                    <div style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px;">1</div>
-                    <div>
-                      <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Review & Analysis</div>
-                      <div style="color: #64748b; font-size: 14px;">Our team will carefully review your inquiry within <strong>24 hours</strong></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Message Received – Trinoxor</title>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;font-family:'Segoe UI',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.10);">
+
+          <!-- HEADER -->
+          <tr><td>${emailHeader()}</td></tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="padding:32px 28px;">
+
+              <!-- Greeting -->
+              <h2 style="color:#111827;font-size:22px;font-weight:800;margin:0 0 10px;">Hi ${formData.name},</h2>
+              <p style="color:#6b7280;font-size:15px;line-height:1.7;margin:0 0 28px;">Thank you for reaching out to <strong style="color:#8B5CF6;">Trinoxor</strong>. We have received your message and will get back to you within <strong style="color:#1E3A8A;">24 hours</strong>.</p>
+
+              <!-- What happens next -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                <tr>
+                  <td>
+                    <div style="display:inline-block;background:linear-gradient(135deg,#1E3A8A,#8B5CF6);border-radius:8px;padding:6px 16px;margin-bottom:12px;">
+                      <span style="color:#fff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">What Happens Next</span>
                     </div>
-                  </div>
-                  
-                  <div style="display: flex; align-items: center; gap: 15px; padding: 18px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #F59E0B;">
-                    <div style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px;">2</div>
-                    <div>
-                      <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Personalized Response</div>
-                      <div style="color: #64748b; font-size: 14px;">We'll prepare a detailed response tailored to your specific needs</div>
-                    </div>
-                  </div>
-                  
-                  <div style="display: flex; align-items: center; gap: 15px; padding: 18px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #EC4899;">
-                    <div style="background: linear-gradient(135deg, #EC4899, #BE185D); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px;">3</div>
-                    <div>
-                      <div style="font-weight: 600; color: #1e293b; font-size: 16px; margin-bottom: 4px;">Project Discussion</div>
-                      <div style="color: #64748b; font-size: 14px;">We'll reach out to discuss your project goals and requirements in detail</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Contact Info -->
-              <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 25px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #fbbf24;">
-                <h3 style="color: #92400e; margin: 0 0 20px 0; font-size: 20px; font-weight: 600; text-align: center;">📞 Need immediate assistance?</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center;">
-                  <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    <div style="color: #7C3AED; font-size: 24px; margin-bottom: 8px;">📧</div>
-                    <div style="font-weight: 600; color: #7C3AED; font-size: 14px; margin-bottom: 4px;">EMAIL US</div>
-                    <a href="mailto:info@trinoxor.com" style="color: #374151; text-decoration: none; font-size: 14px; font-weight: 500;">info@trinoxor.com</a>
-                  </div>
-                  <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    <div style="color: #10B981; font-size: 24px; margin-bottom: 8px;">📞</div>
-                    <div style="font-weight: 600; color: #10B981; font-size: 14px; margin-bottom: 4px;">CALL US</div>
-                    <a href="tel:+26778080590" style="color: #374151; text-decoration: none; font-size: 14px; font-weight: 500;">(+267) 78080590</a>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- CTA Section -->
-              <div style="text-align: center; margin-bottom: 30px;">
-                <p style="color: #64748b; margin: 0 0 25px 0; font-size: 16px;">While you wait, explore our services and recent work:</p>
-                <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                  <a href="https://trinoxor.com/services" style="background: linear-gradient(135deg, #7C3AED, #EC4899); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); transition: all 0.3s ease;">🚀 Our Services</a>
-                  <a href="https://trinoxor.com/portfolio" style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); transition: all 0.3s ease;">🎨 Portfolio</a>
-                </div>
-              </div>
-              
-              <!-- Trust Indicators -->
-              <div style="background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); padding: 25px; border-radius: 12px; text-align: center;">
-                <h4 style="color: #334155; margin: 0 0 20px 0; font-size: 18px; font-weight: 600;">Why choose Trinoxor?</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
-                  <div>
-                    <div style="color: #7C3AED; font-size: 28px; margin-bottom: 8px;">🔒</div>
-                    <div style="font-weight: 600; color: #334155; font-size: 14px;">Secure</div>
-                  </div>
-                  <div>
-                    <div style="color: #10B981; font-size: 28px; margin-bottom: 8px;">📈</div>
-                    <div style="font-weight: 600; color: #334155; font-size: 14px;">Scalable</div>
-                  </div>
-                  <div>
-                    <div style="color: #F59E0B; font-size: 28px; margin-bottom: 8px;">✨</div>
-                    <div style="font-weight: 600; color: #334155; font-size: 14px;">Seamless</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Footer -->
-            <div style="background: #1f2937; padding: 30px; text-align: center;">
-              <div style="margin-bottom: 20px;">
-                <div style="display: inline-flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #7C3AED 0%, #EC4899 35%, #F59E0B 70%, #FBBF24 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <span style="color: white; font-weight: 800; font-size: 18px;">T</span>
-                  </div>
-                  <span style="color: white; font-size: 20px; font-weight: 800; letter-spacing: -0.5px;">TRINOXOR</span>
-                </div>
-                <p style="color: #9ca3af; margin: 0; font-size: 14px; font-style: italic;">Secure • Scalable • Seamless</p>
-              </div>
-              
-              <div style="border-top: 1px solid #374151; padding-top: 20px;">
-                <p style="color: #6b7280; margin: 0; font-size: 12px;">Best regards, <strong style="color: #7C3AED;">The Trinoxor Team</strong></p>
-                <p style="color: #6b7280; margin: 5px 0 0 0; font-size: 12px;">© ${new Date().getFullYear()} Trinoxor. All rights reserved.</p>
-              </div>
-            </div>
-            
-          </div>
-        </body>
-        </html>
-      `,
+                    <div style="height:2px;background:linear-gradient(90deg,#1E3A8A,#8B5CF6,#F59E0B);border-radius:2px;margin-bottom:16px;"></div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Steps – single column for full responsiveness -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;">
+                <tr>
+                  <td width="52" valign="top" style="padding-right:14px;padding-bottom:16px;">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1E3A8A,#3B82F6);text-align:center;line-height:44px;color:#fff;font-weight:800;font-size:18px;">1</div>
+                  </td>
+                  <td valign="middle" style="background:#f8fafc;border-radius:10px;padding:14px 16px;border-left:3px solid #1E3A8A;">
+                    <div style="font-size:14px;font-weight:700;color:#111827;">Review &amp; Analysis</div>
+                    <div style="font-size:13px;color:#6b7280;margin-top:3px;">Our team carefully reviews your enquiry within <strong>24 hours</strong>.</div>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;">
+                <tr>
+                  <td width="52" valign="top" style="padding-right:14px;padding-bottom:16px;">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);text-align:center;line-height:44px;color:#fff;font-weight:800;font-size:18px;">2</div>
+                  </td>
+                  <td valign="middle" style="background:#f8fafc;border-radius:10px;padding:14px 16px;border-left:3px solid #8B5CF6;">
+                    <div style="font-size:14px;font-weight:700;color:#111827;">Personalised Response</div>
+                    <div style="font-size:13px;color:#6b7280;margin-top:3px;">We prepare a detailed response tailored to your specific needs.</div>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+                <tr>
+                  <td width="52" valign="top" style="padding-right:14px;">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#D97706);text-align:center;line-height:44px;color:#fff;font-weight:800;font-size:18px;">3</div>
+                  </td>
+                  <td valign="middle" style="background:#f8fafc;border-radius:10px;padding:14px 16px;border-left:3px solid #F59E0B;">
+                    <div style="font-size:14px;font-weight:700;color:#111827;">Project Discussion</div>
+                    <div style="font-size:13px;color:#6b7280;margin-top:3px;">We reach out to discuss your goals and requirements in detail.</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Need immediate assistance -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+                <tr>
+                  <td style="background:linear-gradient(135deg,#1E3A8A 0%,#8B5CF6 100%);border-radius:12px;padding:18px 20px;">
+                    <p style="color:rgba(255,255,255,0.75);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 12px;">Need Immediate Assistance?</p>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding-right:8px;padding-bottom:8px;">
+                          <a href="mailto:trinoxorbw@gmail.com" style="display:block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:10px 14px;text-decoration:none;">
+                            <span style="color:rgba(255,255,255,0.65);font-size:11px;display:block;margin-bottom:2px;">EMAIL</span>
+                            <span style="color:#ffffff;font-size:13px;font-weight:600;">trinoxorbw@gmail.com</span>
+                          </a>
+                        </td>
+                        <td style="padding-bottom:8px;">
+                          <a href="tel:+26778080590" style="display:block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:8px;padding:10px 14px;text-decoration:none;">
+                            <span style="color:rgba(255,255,255,0.65);font-size:11px;display:block;margin-bottom:2px;">PHONE</span>
+                            <span style="color:#ffffff;font-size:13px;font-weight:600;">(+267) 78080590</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA -->
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <a href="https://trinoxor.com/services" style="display:inline-block;background:linear-gradient(135deg,#1E3A8A,#8B5CF6);color:#ffffff;padding:13px 32px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:0.5px;">Explore Our Services</a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr><td>${emailFooter(year)}</td></tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
     };
 
     await transporter.sendMail(autoReplyOptions);
-    
+
     return { success: true, message: 'Emails sent successfully' };
   } catch (error) {
     console.error('Email sending failed:', error);
